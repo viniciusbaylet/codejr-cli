@@ -4,16 +4,11 @@ import { promptProject } from "../src/prompts/project.js";
 import { createProject } from "../src/scaffold/createProject.js";
 import { setupGit } from "../src/git/setupGit.js";
 import { setupCommitStandard } from "../src/commit/setupCommitStandard.js";
+import { showBanner } from "../src/ui/banner.js";
 
 async function main() {
 
-  console.log(`
-   ______          __             __            _
-  / ____/___  ____/ /__          / /_  ______  (_)___  _____
- / /   / __ \\/ __  / _ \\    __  / / / / / __ \\/ / __ \\/ ___/
-/ /___/ /_/ / /_/ /  __/   / /_/ / /_/ / / / / / /_/ / /
-\\____/\\____/\\__,_/\\___/    \\____/\\__,_/_/ /_/_/\\____/_/
-`);
+  showBanner();
 
   const { projectName, tech } = await promptProject();
 
