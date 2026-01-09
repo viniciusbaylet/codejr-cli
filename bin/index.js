@@ -1,33 +1,27 @@
 #!/usr/bin/env node
 
-import inquirer from "inquirer";
-import { execSync } from "child_process";
+import { promptProject } from "../src/prompts/project.js";
+import { createProject } from "../src/scaffold/createProject.js";
+import { setupGit } from "../src/git/setupGit.js";
+import { setupCommitStandard } from "../src/commit/setupCommitStandard.js";
 
-const { projectName, tech } = await inquirer.prompt([
-  { name: "projectName", message: "Nome do projeto:" },
-  {
-    name: "tech",
-    message: "Tecnologia:",
-    type: "list",
-    choices: ["Next", "React Native", "Laravel"]
-  }
-]);
+async function main() {
+  const { projectName, tech } = await promptProject();
 
-const projectNameSafe = projectName
-  .toLowerCase()
-  .replace(/[^a-z0-9-_]/g, "-");
+  const projectNameSafe = projectName
+    .toLowerCase()
+    .replace(/[^a-z0-9-_]/g, "-");
 
+  await createProject(projectNameSafe, tech);
 
-if (tech === "Next") {
-  execSync(`npx --yes create-next-app ${projectNameSafe}`, { stdio: "inherit" });
+  process.chdir(projectNameSafe);
+
+  setupGit();
+  setupCommitStandard();
+
+  console.log("\n✅ Projeto criado com padrão de commits da CodeJR!");
+  console.log("👉 Use: npm run commit ou git cz\n");
 }
 
-if (tech === "React Native") {
-  execSync(`npx --yes create-expo-app ${projectNameSafe}`, { stdio: "inherit" });
-}
+main();
 
-if (tech === "Laravel") {
-  execSync(`composer create-project laravel/laravel ${projectNameSafe} --no-interaction`, {
-    stdio: "inherit"
-  });
-}
