@@ -58,5 +58,9 @@ npx --no-install commitlint --edit "$1"
     } catch {
         // Windows ignora, tudo bem
     }
+
+    // Faz o git executar o husky para impedir commits fora do padrão
+    run("git config core.hooksPath .husky");
+
 }
 
