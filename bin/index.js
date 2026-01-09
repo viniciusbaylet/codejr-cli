@@ -14,15 +14,15 @@ const { projectName, tech } = await inquirer.prompt([
 ]);
 
 if (tech === "Next") {
-  execSync(`npx create-next-app ${projectName} --yes`, { stdio: "inherit" });
+  execSync(`npx --yes create-next-app ${projectName}`, { stdio: "inherit" });
 }
 
 if (tech === "React Native") {
-  execSync(`npx create-expo-app ${projectName} --yes`, { stdio: "inherit" });
+  execSync(`npx --yes create-expo-app ${projectName}`, { stdio: "inherit" });
 }
 
 if (tech === "Laravel") {
-  execSync(`composer create-project laravel/laravel ${projectName} --yes`, {
+  execSync(`composer create-project laravel/laravel ${projectName} --no-interaction`, {
     stdio: "inherit"
   });
 }
