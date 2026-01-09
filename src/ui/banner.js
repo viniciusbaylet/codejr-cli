@@ -12,7 +12,7 @@ export function showBanner() {
     horizontalLayout: "default",
   });
 
-  const title = chalk.hex("#8b5cf6")(code) + "" + chalk.yellow(junior);   
+  const title = chalk.hex("#8b5cf6")(code) + chalk.yellow(junior);   
 
   console.log(title);
 
