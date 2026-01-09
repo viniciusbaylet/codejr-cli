@@ -34,10 +34,29 @@ export function setupCommitStandard() {
 
     fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 
-    // Inicializar Husky
-    run("npx husky install");
+    // Criar pasta .husky na mão
+    const huskyDir = path.resolve(".husky");
+    if (!fs.existsSync(huskyDir)) {
+        fs.mkdirSync(huskyDir);
+    }
 
-    // Criar hook commit-msg corrtamente
-    run('npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"');
+    // Criar hook commit-msg (FORMA MODERNA)
+    const hookPath = path.join(huskyDir, "commit-msg");
+
+    fs.writeFileSync(
+        hookPath,
+        `#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no-install commitlint --edit "$1"
+`
+    );
+
+    // Permissão de execução (Linux/macOS)
+    try {
+        fs.chmodSync(hookPath, 0o755);
+    } catch {
+        // Windows ignora, tudo bem
+    }
 }
 
