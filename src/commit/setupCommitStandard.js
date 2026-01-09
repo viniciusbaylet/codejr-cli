@@ -11,18 +11,20 @@ export function setupCommitStandard() {
     );
 
     // commitlint.config.cjs
+    // commitlint.config.cjs
     fs.writeFileSync(
         "commitlint.config.cjs",
         `module.exports = {
   extends: ['@commitlint/config-conventional'],
   helpUrl:
-    '❌ Commit inválido.\n' +
-    '👉 Use: npm run commit\n' +
-    '👉 ou: git cz\n' +
+    '❌ Commit inválido.\\n' +
+    '👉 Use: npm run commit\\n' +
+    '👉 ou: git cz\\n' +
     '📘 Padrão: Conventional Commits',
 };
 `
     );
+
 
     // Atualizar package.json
     const pkgPath = path.resolve("package.json");
