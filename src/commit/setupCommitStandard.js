@@ -45,10 +45,9 @@ export function setupCommitStandard() {
 
     fs.writeFileSync(
         hookPath,
-        `
-            #!/bin/sh
-            npx --no-install commitlint --edit "$1"
-        `
+        `#!/bin/sh
+npx --no-install commitlint --edit "$1"
+`
     );
 
 
