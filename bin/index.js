@@ -13,16 +13,21 @@ const { projectName, tech } = await inquirer.prompt([
   }
 ]);
 
+const projectNameSafe = projectName
+  .toLowerCase()
+  .replace(/[^a-z0-9-_]/g, "-");
+
+
 if (tech === "Next") {
-  execSync(`npx --yes create-next-app ${projectName}`, { stdio: "inherit" });
+  execSync(`npx --yes create-next-app ${projectNameSafe}`, { stdio: "inherit" });
 }
 
 if (tech === "React Native") {
-  execSync(`npx --yes create-expo-app ${projectName}`, { stdio: "inherit" });
+  execSync(`npx --yes create-expo-app ${projectNameSafe}`, { stdio: "inherit" });
 }
 
 if (tech === "Laravel") {
-  execSync(`composer create-project laravel/laravel ${projectName} --no-interaction`, {
+  execSync(`composer create-project laravel/laravel ${projectNameSafe} --no-interaction`, {
     stdio: "inherit"
   });
 }
