@@ -35,7 +35,7 @@ export function setupCommitStandard() {
     fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 
     // Inicializar Husky
-    run("npx husky install");
+    run("npx husky init");
 
     // Criar hook commit-msg MANUALMENTE
     const huskyDir = path.resolve(".husky");
