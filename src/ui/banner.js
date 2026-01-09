@@ -4,15 +4,9 @@ import figlet from "figlet";
 export function showBanner() {
   console.clear();
 
-  const code = figlet.textSync("Code", {
+  const title =  chalk.hex("#8b5cf6")(figlet.textSync("Code Junior", {
     horizontalLayout: "default",
-  }).replace(/\n$/, "");
-
-  const junior = figlet.textSync("Junior", {
-    horizontalLayout: "default",
-  });
-
-  const title = chalk.hex("#8b5cf6")(code) + chalk.yellow(junior);   
+  }));
 
   console.log(title);
 
@@ -26,9 +20,5 @@ export function showBanner() {
 
   console.log(
     chalk.hex("#8b5cf6")("=".repeat(80))
-  );
-
-  console.log(
-    chalk.yellow(">> Configuração Inicial\n")
   );
 }
