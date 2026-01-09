@@ -6,7 +6,7 @@ export function showBanner() {
 
   const code = figlet.textSync("Code", {
     horizontalLayout: "default",
-  });
+  }).replace(/\n$/, "");
 
   const junior = figlet.textSync("Junior", {
     horizontalLayout: "default",
