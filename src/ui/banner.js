@@ -4,22 +4,28 @@ import figlet from "figlet";
 export function showBanner() {
   console.clear();
 
-  const title = figlet.textSync("Code Junior", {
+  const code = figlet.textSync("Code", {
     horizontalLayout: "default",
   });
 
-  console.log(chalk.cyan(title));
+  const junior = figlet.textSync("Junior", {
+    horizontalLayout: "default",
+  });
+
+  const title = chalk.hex("#8b5cf6")(code) + "" + chalk.yellow(junior);   
+
+  console.log(title);
 
   console.log(
-    chalk.gray("=".repeat(80))
+    chalk.hex("#8b5cf6")("=".repeat(80))
   );
 
   console.log(
-    chalk.bold.green("   🚀  GERADOR DE PROJETOS | CODE JÚNIOR\n")
+    chalk.bold.yellow("   🚀  GERADOR DE PROJETOS | CODE JÚNIOR")
   );
 
   console.log(
-    chalk.gray("=".repeat(80))
+    chalk.hex("#8b5cf6")("=".repeat(80))
   );
 
   console.log(
