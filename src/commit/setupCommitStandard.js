@@ -17,7 +17,7 @@ export function setupCommitStandard() {
         `module.exports = {
   extends: ['@commitlint/config-conventional'],
   helpUrl:
-    '❌ Commit inválido.\\n' +
+    '\\n❌ Commit inválido.\\n' +
     '👉 Use: npm run commit\\n' +
     '📘 Padrão: Conventional Commits',
 };
