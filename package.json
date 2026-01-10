@@ -1,8 +1,8 @@
 {
-  "name": "codejr-cli",
+  "name": "create-codejr-app",
   "version": "0.1.0",
   "bin": {
-    "codejr": "./bin/index.js"
+    "create-codejr-app": "./bin/index.js"
   },
   "type": "module",
   "dependencies": {
