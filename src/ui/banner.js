@@ -15,7 +15,7 @@ export function showBanner() {
   );
 
   console.log(
-    chalk.bold.cyan("   🚀  GERADOR DE PROJETOS | CODE JÚNIOR")
+    chalk.bold.yellow("   🚀  GERADOR DE PROJETOS | CODE JÚNIOR")
   );
 
   console.log(
