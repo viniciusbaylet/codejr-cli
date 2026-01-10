@@ -6,11 +6,11 @@ export function showBanner() {
 
   const code =  chalk.hex("#8b5cf6")(figlet.textSync("Code", {
     horizontalLayout: "default",
-  }).split('\n'));
+  }));
 
   const junior =  chalk.yellow(figlet.textSync("Junior", {
     horizontalLayout: "default",
-  }).split('\n'));
+  }));
 
   const title = code + " " + junior;
 
