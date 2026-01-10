@@ -19,7 +19,6 @@ export function setupCommitStandard() {
   helpUrl:
     '❌ Commit inválido.\\n' +
     '👉 Use: npm run commit\\n' +
-    '👉 ou: git cz\\n' +
     '📘 Padrão: Conventional Commits',
 };
 `
