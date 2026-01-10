@@ -4,9 +4,15 @@ import figlet from "figlet";
 export function showBanner() {
   console.clear();
 
-  const title =  chalk.hex("#8b5cf6")(figlet.textSync("Code Junior", {
+  const code =  chalk.hex("#8b5cf6")(figlet.textSync("Code", {
     horizontalLayout: "default",
-  }));
+  }).split('\n'));
+
+  const junior =  chalk.yellow(figlet.textSync("Junior", {
+    horizontalLayout: "default",
+  }).split('\n'));
+
+  const title = code + " " + junior;
 
   console.log(title);
 
