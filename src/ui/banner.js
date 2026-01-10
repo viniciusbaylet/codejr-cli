@@ -17,4 +17,16 @@ export function showBanner() {
     const juniorPart = chalk.yellow(juniorLines[i] || "");
     console.log(`${codePart}  ${ juniorPart }`);
   }
+
+  console.log(
+    chalk.yellow("=".repeat(80))
+  );
+
+  console.log(
+    chalk.bold.white("   🚀  GERADOR DE PROJETOS | CODE JÚNIOR")
+  );
+
+  console.log(
+    chalk.yellow("=".repeat(80))
+  );
 }
