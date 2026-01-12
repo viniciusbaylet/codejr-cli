@@ -24,7 +24,7 @@ async function main() {
   setupCommitStandard();
 
   console.log("\n✅ Projeto criado com padrão de commits da CodeJR!");
-  console.log("👉 Use: npm run commit ou git cz\n");
+  console.log("👉 Para fazer commits use: npm run commit ou npx cz\n");
 }
 
 main();

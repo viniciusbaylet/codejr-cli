@@ -9,7 +9,7 @@ export async function createProject(projectName, tech) {
       break;
 
     case "React Native":
-      run(`npx --yes create-expo-app ${projectName}`);
+      run(`npx create-expo-app ${projectName} --template blank-typescript`);
       break;
 
     case "Laravel":

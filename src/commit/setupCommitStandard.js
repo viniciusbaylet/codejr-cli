@@ -5,12 +5,10 @@ import { run } from "../utils/exec.js";
 export function setupCommitStandard() {
     console.log("📦 Configurando padrão de commits da CodeJR...\n");
 
-    // Instalar dependências
     run(
         "npm install --save-dev husky @commitlint/cli @commitlint/config-conventional commitizen cz-conventional-changelog"
     );
 
-    // commitlint.config.cjs
     // commitlint.config.cjs
     fs.writeFileSync(
         "commitlint.config.cjs",
@@ -19,11 +17,11 @@ export function setupCommitStandard() {
   helpUrl:
     '\\n❌ Commit inválido.\\n' +
     '👉 Use: npm run commit\\n' +
+    '👉 Ou use: npx cz\\n' +
     '📘 Padrão: Conventional Commits',
 };
 `
     );
-
 
     // Atualizar package.json
     const pkgPath = path.resolve("package.json");
@@ -40,13 +38,13 @@ export function setupCommitStandard() {
 
     fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 
-    // Criar pasta .husky na mão
+    // Cria pasta .husky 
     const huskyDir = path.resolve(".husky");
     if (!fs.existsSync(huskyDir)) {
         fs.mkdirSync(huskyDir);
     }
 
-    // Criar hook commit-msg (FORMA MODERNA)
+    // Cria hook commit-msg 
     const hookPath = path.join(huskyDir, "commit-msg");
 
     fs.writeFileSync(
@@ -56,12 +54,11 @@ npx --no-install commitlint --edit "$1"
 `
     );
 
-
     // Permissão de execução (Linux/macOS)
     try {
         fs.chmodSync(hookPath, 0o755);
     } catch {
-        // Windows ignora, tudo bem
+        // Windows ignora 
     }
 
     // Faz o git executar o husky para impedir commits fora do padrão
