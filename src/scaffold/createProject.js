@@ -14,7 +14,7 @@ export async function createProject(projectName, tech) {
 
     case "Laravel":
       run(
-        `composer create-project laravel/laravel ${projectName} --no-interaction`
+        `composer create-project laravel/laravel ${projectName}`
       );
       break;
 
